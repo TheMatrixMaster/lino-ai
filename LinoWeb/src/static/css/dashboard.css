@@ -1,0 +1,29 @@
+/*
+* @Author: stephen.zlu
+* @Date:   2019-09-05 14:54:56
+* @Last Modified by:   stephen.zlu
+* @Last Modified time: 2019-09-15 23:20:28
+*/
+
+  .main-panel > .content {
+    min-height: 0px;
+  }
+
+  .panel-header-lg {
+    height: 346px;
+  }
+
+  .panel-header {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .logo {
+    text-align: center;
+  }
+
+  .sidebar .logo, .off-canvas-sidebar .logo {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }

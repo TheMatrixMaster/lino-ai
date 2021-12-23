@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>Lino</title>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='images/logo.png') }}">
+
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" />
+
+</head>
+<style>
+    #splashscreen {
+      height: 100vh;
+      width: 100vw;
+      line-height: 100vh;
+      text-align: center;
+      background-size: cover;
+      background-image: url({{url_for('static', filename='images/background4.jpg')}});
+    }
+    #homescreen {
+      display: none;
+      text-align: center;
+    }
+    .proprietaire {
+      text-align: center;
+      height: 68vh;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 50%);
+      background-size: cover;
+      background-image: url({{url_for('static', filename='images/locataire.jpg')}});
+    }
+    .locataire {
+      text-align: center;
+      height: 68vh;
+      margin-top: -35vh;
+      clip-path: polygon(0 0, 100% 50%, 100% 100%, 0% 100%);
+      background-size: cover;
+      background-image: url({{url_for('static', filename='images/proprietaire.jpg')}});
+    }
+    /*.proprietaire:hover {
+      -webkit-filter: blur(2px);
+      filter: blur(2px);
+      transition: .4s ease-in-out;
+    }
+    .locataire:hover {
+      -webkit-filter: blur(2px);
+      filter: blur(2px);
+      transition: .4s ease-in-out;
+    }*/
+    .full-submit {
+      height: 100%;
+      width: 100%;
+      display: block;
+    }
+    .p-text {
+      position: absolute;
+      left: 25vw;
+      margin-top: 25vh;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      color: white;
+    }
+    .l-text {
+      position: absolute;
+      margin-top: 35vh;
+      left: 30vw;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      color: white;
+    }
+</style>
+<body>
+
+<div id="splashscreen">
+    <img class="ssl" src="{{ url_for('static', filename='images/crop_logo.png') }}" height="70">
+</div>
+
+<div id="homescreen">
+    <div class="proprietaire">
+      <form method="GET" action="{{ url_for('view.form') }}" id="p-form"></form>
+      <h5 class="p-text">PROPRIETAIRE</h5>
+    </div>
+    <div class="locataire">
+      <form method="GET" action="{{ url_for('view.search') }}" id="l-form"></form>
+      <h5 class="l-text">LOCATAIRE</h5>
+    </div>
+</div>
+
+
+  <!--   Core JS Files   -->
+  <script src="{{ url_for('static', filename='js/core/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/core/popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/core/bootstrap.min.js') }}"></script>
+  <script>
+    $(document).ready(function() {
+      setTimeout(function splashScreenAnimation() {
+        document.getElementById("splashscreen").style.display = 'none';
+        document.getElementById("homescreen").style.display = 'block';
+      }, 1500);
+    });
+  </script>
+  <script>
+    window.addEventListener("DOMContentLoaded", function () {
+      var pform = document.getElementById("p-form");
+      var lform = document.getElementById("l-form");
+
+      $(".proprietaire").click(function(){
+        pform.submit();
+      });
+
+      $(".locataire").click(function(){
+        lform.submit();
+      });
+    });
+  </script>
+</body>
+</html>

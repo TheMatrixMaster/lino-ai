@@ -1,0 +1,6 @@
+__pycache__
+*.pyc
+venv/
+src/data/private/
+outsider_key.pem
+.DS_store

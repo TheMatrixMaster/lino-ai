@@ -1,0 +1,9 @@
+REI-Dataset/
+__pycache__/
+all_trained_models/
+final_deliverables/
+test_images/
+data/
+.idea/
+rough/
+train_logs/
